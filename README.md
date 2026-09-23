@@ -41,6 +41,15 @@ Run from the Proxmox VE host shell:
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/asenfter/homelab-proxmox-scripts/main/ct/docker-runner.sh)"
 ```
 
+To override the container defaults (2 CPU, 2048 MiB, 20 GB), prefix the command with the corresponding `var_*` variables and select `Default Install` in the menu:
+
+```bash
+var_hostname=ci-runner \
+  bash -c "$(curl -fsSL https://raw.githubusercontent.com/asenfter/homelab-proxmox-scripts/main/ct/docker-runner.sh)"
+```
+
+The variables must precede `bash`, not `curl`. Community Scripts Core reads them in `base_settings()`, so no interactive wizard is required for these four values.
+
 The script uses Community Scripts Core at runtime. `COMMUNITY_SCRIPTS_URL` explicitly points to this repository so the matching installer and CT update entrypoint come from this fork.
 
 ## Register the GitHub runner

@@ -14,10 +14,10 @@ source "$_cs_boot" 2>/dev/null || source <(curl -fsSL "${COMMUNITY_SCRIPTS_CORE_
 # APP is load-bearing: Community Scripts derives the installer name from it.
 APP="Docker-Runner"
 var_tags="${var_tags:-ci;docker}"
-var_cpu="${var_cpu:-2}"
-var_ram="${var_ram:-2048}"
+var_cpu="${var_cpu:-1}"
+var_ram="${var_ram:-512}"
 # Docker image layers and the runner's _work checkouts share this disk.
-var_disk="${var_disk:-20}"
+var_disk="${var_disk:-10}"
 var_os="${var_os:-debian}"
 var_version="${var_version:-13}"
 var_arm64="${var_arm64:-yes}"
